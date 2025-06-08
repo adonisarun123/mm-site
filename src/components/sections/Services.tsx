@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Search, Target, FileText, TrendingUp, Code, Globe, Sparkles, Bot, Zap } from "lucide-react"
+import { ArrowRight, Search, Target, FileText, TrendingUp, Code, Globe, Sparkles, Bot, Zap, Database } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 
@@ -103,6 +103,18 @@ const services = [
     iconColor: "text-rose-600",
     resultColor: "text-rose-700",
     href: "/services/websites"
+  },
+  {
+    icon: Database,
+    title: "Data Analytics & BI",
+    description: "Transform data into actionable insights and intelligence",
+    features: ["Custom Dashboards", "Predictive Analytics", "ROI Attribution"],
+    result: "95% improvement in decision-making speed",
+    gradient: "from-emerald-500 to-teal-500",
+    bgGradient: "from-emerald-50 to-teal-50",
+    iconColor: "text-emerald-600",
+    resultColor: "text-emerald-700",
+    href: "/services/data-analytics"
   }
 ]
 
