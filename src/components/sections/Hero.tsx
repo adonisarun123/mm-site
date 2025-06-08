@@ -70,7 +70,7 @@ export function Hero() {
           preload="metadata"
           onLoadedData={handleVideoLoad}
           onError={handleVideoError}
-          poster="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1920&q=80"
+          poster="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1500&q=70"
         >
           <source src="https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4" type="video/mp4" />
         </video>
