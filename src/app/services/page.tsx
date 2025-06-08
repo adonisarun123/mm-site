@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, TrendingUp, Target, PenTool, BarChart3, Settings, Globe, Brain, Zap, Database } from 'lucide-react';
+import { ArrowRight, TrendingUp, Target, PenTool, BarChart3, Settings, Globe, Brain, Zap, Database, Users, Shield, Video, Bot, MousePointer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
@@ -54,6 +54,56 @@ const services = [
     result: 'Average 95% improvement in decision-making speed',
     href: '/services/data-analytics',
     color: 'from-emerald-500 to-teal-600'
+  },
+  {
+    id: 'conversion-optimization',
+    title: 'Conversion Rate Optimization',
+    description: 'Maximize conversions through data-driven testing and optimization',
+    icon: MousePointer,
+    features: ['A/B Testing', 'Landing Page Optimization', 'User Experience Testing', 'Conversion Funnel Analysis'],
+    result: 'Average 285% increase in conversion rates',
+    href: '/services/conversion-optimization',
+    color: 'from-amber-500 to-orange-600'
+  },
+  {
+    id: 'lead-generation',
+    title: 'Lead Generation Services',
+    description: 'Comprehensive lead capture and qualification systems',
+    icon: Users,
+    features: ['Lead Magnets', 'Landing Pages', 'Lead Scoring', 'Qualification Systems'],
+    result: 'Average 420% increase in qualified leads',
+    href: '/services/lead-generation',
+    color: 'from-pink-500 to-rose-600'
+  },
+  {
+    id: 'reputation-management',
+    title: 'Reputation Management',
+    description: 'Protect and enhance your online reputation across all platforms',
+    icon: Shield,
+    features: ['Review Management', 'Crisis Communication', 'Brand Monitoring', 'Reputation Recovery'],
+    result: 'Average 4.8+ star rating maintenance',
+    href: '/services/reputation-management',
+    color: 'from-slate-500 to-gray-600'
+  },
+  {
+    id: 'video-production',
+    title: 'Video Production & Marketing',
+    description: 'Professional video content that engages and converts audiences',
+    icon: Video,
+    features: ['Commercial Production', 'Social Media Videos', 'Testimonial Videos', 'Animated Explainers'],
+    result: 'Average 350% increase in engagement rates',
+    href: '/services/video-production',
+    color: 'from-red-500 to-pink-600'
+  },
+  {
+    id: 'chatbot-development',
+    title: 'Chatbot Development',
+    description: 'AI-powered conversational interfaces that enhance customer experience',
+    icon: Bot,
+    features: ['AI Chatbots', 'Lead Qualification', '24/7 Customer Support', 'Multi-platform Integration'],
+    result: 'Average 75% reduction in response time',
+    href: '/services/chatbot-development',
+    color: 'from-indigo-500 to-blue-600'
   },
   {
     id: 'content-marketing',
