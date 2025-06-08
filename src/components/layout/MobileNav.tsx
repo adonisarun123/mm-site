@@ -60,19 +60,24 @@ export function MobileNav({ items }: MobileNavProps) {
             className="flex items-center space-x-3 group"
             onClick={() => setOpen(false)}
           >
-            <div className="relative">
-              <Image
-                src="https://ik.imagekit.io/6oa6qejxe/MonkMantra-Logo.png"
-                alt="MonkMantra"
-                width={32}
-                height={32}
-                className="rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            {/* Beautiful Text-Based Logo for Mobile */}
+            <div className="relative flex items-center gap-2">
+              {/* Decorative Icon */}
+              <div className="relative w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                <span className="text-white font-bold text-sm">M</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-red-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              
+              {/* Brand Text */}
+              <div className="flex flex-col">
+                <span className="font-bold text-lg leading-tight bg-gradient-to-r from-white via-blue-100 to-orange-200 bg-clip-text text-transparent group-hover:from-orange-200 group-hover:via-red-200 group-hover:to-yellow-200 transition-all duration-300">
+                  MonkMantra
+                </span>
+                <span className="text-xs text-white/70 -mt-1 group-hover:text-orange-200 transition-colors duration-300">
+                  Digital Marketing
+                </span>
+              </div>
             </div>
-            <span className="font-bold text-lg bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-              MonkMantra
-            </span>
           </Link>
         </div>
         
