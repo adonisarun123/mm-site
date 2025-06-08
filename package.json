@@ -8,10 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "prebuild": "bun run type-check && bun run lint",
-    "analyze": "ANALYZE=true bun run build",
+    "prebuild": "npm run type-check && npm run lint",
+    "analyze": "ANALYZE=true npm run build",
     "lighthouse": "node scripts/performance-test.js",
-    "perf:test": "bun run build:prod && bun run lighthouse"
+    "perf:test": "npm run build && npm run lighthouse"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
