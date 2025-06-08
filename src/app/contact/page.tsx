@@ -205,7 +205,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h3>
                     <p className="text-lg text-gray-600">
-                      We've received your message and will get back to you within 24 hours.
+                      We&apos;ve received your message and will get back to you within 24 hours.
                     </p>
                   </div>
                 ) : (
