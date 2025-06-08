@@ -1,0 +1,8 @@
+# Target only modern evergreen browsers (ES2019+ baseline)
+# This lets Next.js skip legacy polyfills
+Chrome >= 108
+Firefox >= 108
+Edge >= 108
+Safari >= 16
+Android >= 108
+IOS >= 16 
