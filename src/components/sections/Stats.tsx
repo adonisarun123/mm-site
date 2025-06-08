@@ -69,6 +69,12 @@ function AnimatedCounter({ value, suffix, duration = 2000 }: { value: number, su
   );
 }
 
+// Deterministic pseudo-random helper to avoid hydration mismatches
+const pr = (seed: number) => {
+  const x = Math.sin(seed * 8797) * 10000;
+  return x - Math.floor(x);
+};
+
 export function Stats() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -216,10 +222,10 @@ export function Stats() {
             key={i}
             className="absolute w-1 h-1 bg-white rounded-full opacity-20"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              left: `${pr(i) * 100}%`,
+              top: `${pr(i + 20) * 100}%`,
+              animationDelay: `${pr(i + 40) * 3}s`,
+              animationDuration: `${3 + pr(i + 60) * 4}s`
             }}
           />
         ))}

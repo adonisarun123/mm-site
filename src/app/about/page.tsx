@@ -251,12 +251,20 @@ export default function AboutPage() {
                   </div>
                   <div className="flex justify-center gap-4">
                     <Button variant="outline" size="sm" asChild>
-                      <Link href={member.linkedin} target="_blank">
+                      <Link 
+                        href={member.linkedin} 
+                        target="_blank"
+                        aria-label={`Visit ${member.name}'s LinkedIn profile`}
+                      >
                         <LinkedinIcon className="h-4 w-4" />
                       </Link>
                     </Button>
                     <Button variant="outline" size="sm" asChild>
-                      <Link href={member.twitter} target="_blank">
+                      <Link 
+                        href={member.twitter} 
+                        target="_blank"
+                        aria-label={`Visit ${member.name}'s Twitter profile`}
+                      >
                         <TwitterIcon className="h-4 w-4" />
                       </Link>
                     </Button>

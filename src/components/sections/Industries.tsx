@@ -22,7 +22,7 @@ const industries = [
     gradient: "from-red-500 via-pink-500 to-rose-500",
     bgGradient: "from-red-50 via-pink-50 to-rose-50",
     iconColor: "text-red-600",
-    accentColor: "text-red-500"
+    accentColor: "text-red-800"
   },
   {
     icon: Home,
@@ -39,7 +39,7 @@ const industries = [
     gradient: "from-blue-500 via-indigo-500 to-purple-500",
     bgGradient: "from-blue-50 via-indigo-50 to-purple-50",
     iconColor: "text-blue-600",
-    accentColor: "text-blue-500"
+    accentColor: "text-blue-800"
   },
   {
     icon: Plane,
@@ -56,7 +56,7 @@ const industries = [
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     bgGradient: "from-emerald-50 via-teal-50 to-cyan-50",
     iconColor: "text-emerald-600",
-    accentColor: "text-emerald-500"
+    accentColor: "text-emerald-800"
   }
 ]
 

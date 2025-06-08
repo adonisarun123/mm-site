@@ -211,12 +211,12 @@ export function Services() {
                     </div>
                   </div>
                   
-                  <Link href={service.href}>
+                  <Link href={service.href} aria-label={`Learn more about ${service.title}`}>
                     <Button 
                       variant="outline" 
                       className={`w-full group-hover:bg-gradient-to-r ${service.gradient} group-hover:text-white group-hover:border-transparent transition-all duration-300 font-medium`}
                     >
-                      <span>Learn More</span>
+                      <span>Learn More about {service.title}</span>
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </Button>
                   </Link>

@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Zap, TrendingUp, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import Link from "next/link";
 
+// Deterministic pseudo-random helper to avoid hydration mismatches
+const pr = (seed: number) => {
+  const x = Math.sin(seed * 7919) * 10000;
+  return x - Math.floor(x);
+};
+
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -64,10 +70,9 @@ export function Hero() {
           preload="metadata"
           onLoadedData={handleVideoLoad}
           onError={handleVideoError}
-          poster="/hero-poster.jpg"
+          poster="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1920&q=80"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
-          <source src="/hero-video.webm" type="video/webm" />
+          <source src="https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4" type="video/mp4" />
         </video>
         
         {/* Video Overlay for Text Readability */}
@@ -140,10 +145,10 @@ export function Hero() {
                 key={i}
                 className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-float"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 5}s`,
-                  animationDuration: `${4 + Math.random() * 6}s`
+                  left: `${pr(i) * 100}%`,
+                  top: `${pr(i + 30) * 100}%`,
+                  animationDelay: `${pr(i + 60) * 5}s`,
+                  animationDuration: `${4 + pr(i + 90) * 6}s`
                 }}
               />
             ))}
@@ -163,12 +168,12 @@ export function Hero() {
                 key={i}
                 className="absolute text-green-400 text-xs font-mono animate-binary-rain"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 5}s`,
-                  animationDuration: `${8 + Math.random() * 4}s`
+                  left: `${pr(i) * 100}%`,
+                  animationDelay: `${pr(i + 20) * 5}s`,
+                  animationDuration: `${8 + pr(i + 40) * 4}s`
                 }}
               >
-                {Math.random() > 0.5 ? '1' : '0'}
+                {pr(i + 60) > 0.5 ? '1' : '0'}
               </div>
             ))}
           </div>

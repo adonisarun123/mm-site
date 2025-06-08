@@ -148,6 +148,7 @@ export function Footer() {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Monk Mantra on LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
@@ -156,6 +157,7 @@ export function Footer() {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Monk Mantra on Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
@@ -164,6 +166,7 @@ export function Footer() {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Monk Mantra on Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </Link>

@@ -30,6 +30,12 @@ const testimonialQuotes = [
   }
 ]
 
+// Deterministic pseudo-random helper to avoid hydration mismatches
+const pr = (seed: number) => {
+  const x = Math.sin(seed * 9973) * 10000;
+  return x - Math.floor(x);
+};
+
 export function CTA() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -64,10 +70,10 @@ export function CTA() {
             key={i}
             className="absolute animate-pulse text-white/20"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              transform: `scale(${0.5 + Math.random() * 0.5})`
+              left: `${pr(i) * 100}%`,
+              top: `${pr(i + 20) * 100}%`,
+              animationDelay: `${pr(i + 40) * 3}s`,
+              transform: `scale(${0.5 + pr(i + 60) * 0.5})`
             }}
           />
         ))}
@@ -141,12 +147,14 @@ export function CTA() {
             </div>
             
             {/* Testimonial Indicators */}
-            <div className="flex justify-center mt-4 space-x-2">
+            <div className="flex justify-center mt-4 space-x-3">
               {testimonialQuotes.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentTestimonial === index ? 'bg-white scale-125' : 'bg-white/30'
+                  type="button"
+                  aria-label={`Show testimonial ${index + 1}`}
+                  className={`w-4 h-4 p-3 rounded-full transition-all duration-300 ${
+                    currentTestimonial === index ? 'bg-white scale-110' : 'bg-white/30'
                   }`}
                   onClick={() => setCurrentTestimonial(index)}
                 />
@@ -233,10 +241,10 @@ export function CTA() {
             key={i}
             className="absolute w-1 h-1 bg-white rounded-full opacity-20 animate-bounce"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${2 + Math.random() * 3}s`
+              left: `${pr(i) * 100}%`,
+              top: `${pr(i + 30) * 100}%`,
+              animationDelay: `${pr(i + 60) * 5}s`,
+              animationDuration: `${2 + pr(i + 90) * 3}s`
             }}
           />
         ))}
