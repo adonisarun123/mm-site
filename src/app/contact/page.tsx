@@ -107,7 +107,7 @@ export default function ContactPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 text-sm text-white mb-8">
               <Sparkles className="h-4 w-4 text-yellow-400" />
-              <span>Let's Transform Your Business Together</span>
+              <span>Let&apos;s Transform Your Business Together</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
@@ -184,7 +184,7 @@ export default function ContactPage() {
                 Get Your Free AI Marketing Audit
               </h2>
               <p className="text-xl text-gray-600">
-                Fill out the form below and we'll analyze your current marketing setup for free
+                Fill out the form below and we&apos;ll analyze your current marketing setup for free
               </p>
             </div>
 

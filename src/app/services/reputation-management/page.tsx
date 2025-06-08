@@ -375,7 +375,7 @@ export default function ReputationManagementPage() {
             Ready to Protect Your Online Reputation?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Discover how professional reputation management can safeguard and enhance your brand's credibility
+            Discover how professional reputation management can safeguard and enhance your brand&apos;s credibility
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button size="lg" className="bg-white text-gray-600 hover:bg-gray-100 px-8 py-4 text-lg">
