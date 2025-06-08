@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Zap, TrendingUp } from "lucide-react";
+import { ArrowRight, Star, Zap, TrendingUp, Play, Pause } from "lucide-react";
 
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -16,8 +17,56 @@ export function Hero() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const toggleVideo = () => {
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    if (video) {
+      if (isVideoPlaying) {
+        video.pause();
+      } else {
+        video.play();
+      }
+      setIsVideoPlaying(!isVideoPlaying);
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          id="hero-video"
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/hero-poster.jpg"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/hero-video.webm" type="video/webm" />
+          {/* Fallback gradient background if video doesn't load */}
+        </video>
+        
+        {/* Video Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/70 to-indigo-900/80"></div>
+        
+        {/* Video Control Button */}
+        <button
+          onClick={toggleVideo}
+          className="absolute top-6 right-6 z-20 p-3 bg-black/30 backdrop-blur-sm rounded-full text-white hover:bg-black/50 transition-all duration-300 group"
+          aria-label={isVideoPlaying ? "Pause video" : "Play video"}
+        >
+          {isVideoPlaying ? (
+            <Pause className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+          ) : (
+            <Play className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+          )}
+        </button>
+      </div>
+
+      {/* Fallback Gradient Background (shown when video is loading or failed) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 -z-10" />
+      
       {/* Animated Background Grid */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       
@@ -68,6 +117,22 @@ export function Hero() {
           We&apos;ve generated <span className="text-green-400 font-bold text-3xl">$50M+</span> in revenue for clients using our 
           <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-semibold"> proprietary frameworks</span> and data-driven strategies
         </p>
+
+        {/* Video CTA Section */}
+        <div className="mb-8 animate-slide-up delay-400">
+          <div className="inline-flex items-center gap-4 bg-black/20 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+            <div className="relative">
+              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300 group" onClick={toggleVideo}>
+                <Play className="h-6 w-6 text-white ml-1 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur opacity-50 animate-pulse"></div>
+            </div>
+            <div className="text-left">
+              <p className="text-white font-semibold">Watch Our Success Story</p>
+              <p className="text-blue-200 text-sm">See how we transformed 250+ businesses</p>
+            </div>
+          </div>
+        </div>
 
         {/* Stats Row */}
         <div className="flex flex-wrap justify-center gap-8 mb-12 animate-slide-up delay-500">
