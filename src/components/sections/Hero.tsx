@@ -1,11 +1,16 @@
 "use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Zap, TrendingUp, Play, Pause } from "lucide-react";
+import { ArrowRight, Star, Zap, TrendingUp, Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -16,47 +21,161 @@ export function Hero() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const toggleVideo = () => {
+    if (videoRef.current && videoLoaded) {
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsVideoPlaying(!isVideoPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current && videoLoaded) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+    setVideoError(false);
+  };
+
+  const handleVideoError = () => {
+    setVideoError(true);
+    setVideoLoaded(false);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Dynamic Animated Background */}
+      {/* Professional Video Background */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Animated Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 animate-gradient-x"></div>
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          preload="metadata"
+          onLoadedData={handleVideoLoad}
+          onError={handleVideoError}
+          poster="/hero-poster.jpg"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/hero-video.webm" type="video/webm" />
+        </video>
         
-        {/* Moving Gradient Overlay */}
-        <div className="absolute inset-0 opacity-50">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 via-transparent to-blue-600/30 animate-pulse"></div>
-          <div className="absolute inset-0 bg-gradient-to-l from-orange-600/20 via-transparent to-pink-600/20 animate-pulse delay-1000"></div>
-        </div>
-
-        {/* Animated Geometric Shapes */}
-        <div className="absolute inset-0">
-          {/* Large animated circles */}
-          <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-purple-600/10 rounded-full animate-bounce delay-500"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-pink-600/10 rounded-full animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-gradient-to-r from-orange-400/10 to-red-600/10 rounded-full animate-ping delay-2000"></div>
-          
-          {/* Floating particles */}
-          {Array.from({ length: 20 }, (_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Mesh Gradient Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]"></div>
+        {/* Video Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/75 via-blue-900/60 to-indigo-900/75"></div>
+        
+        {/* Video Controls - Only show if video loaded */}
+        {videoLoaded && (
+          <div className="absolute top-6 right-6 z-20 flex gap-3">
+            <button
+              onClick={toggleVideo}
+              className="p-3 bg-black/30 backdrop-blur-sm rounded-full text-white hover:bg-black/50 transition-all duration-300 group"
+              aria-label={isVideoPlaying ? "Pause video" : "Play video"}
+            >
+              {isVideoPlaying ? (
+                <Pause className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              ) : (
+                <Play className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              )}
+            </button>
+            
+            <button
+              onClick={toggleMute}
+              className="p-3 bg-black/30 backdrop-blur-sm rounded-full text-white hover:bg-black/50 transition-all duration-300 group"
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+              {isMuted ? (
+                <VolumeX className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              ) : (
+                <Volume2 className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              )}
+            </button>
+          </div>
+        )}
       </div>
+
+      {/* Stunning Fallback Background (shown when video is loading/failed) */}
+      {(!videoLoaded || videoError) && (
+        <div className="absolute inset-0">
+          {/* Advanced Animated Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"></div>
+          
+          {/* Moving Mesh Gradient */}
+          <div className="absolute inset-0 opacity-60">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/40 via-blue-600/40 to-cyan-600/40 animate-gradient-x"></div>
+            <div className="absolute inset-0 bg-gradient-to-l from-orange-600/30 via-red-600/30 to-pink-600/30 animate-gradient-x" style={{animationDelay: '2s'}}></div>
+          </div>
+
+          {/* Animated Network Lines */}
+          <div className="absolute inset-0">
+            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3"/>
+                  <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.6"/>
+                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.3"/>
+                </linearGradient>
+              </defs>
+              <g className="animate-pulse">
+                <line x1="0" y1="20%" x2="100%" y2="40%" stroke="url(#lineGradient)" strokeWidth="1"/>
+                <line x1="0" y1="60%" x2="100%" y2="30%" stroke="url(#lineGradient)" strokeWidth="1"/>
+                <line x1="0" y1="80%" x2="100%" y2="70%" stroke="url(#lineGradient)" strokeWidth="1"/>
+              </g>
+            </svg>
+          </div>
+
+          {/* Floating Data Points */}
+          <div className="absolute inset-0">
+            {Array.from({ length: 30 }, (_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-float"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 5}s`,
+                  animationDuration: `${4 + Math.random() * 6}s`
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Geometric Shapes */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 border border-blue-400/30 rounded-full animate-spin-slow"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 border border-purple-400/30 rounded-full animate-spin-reverse"></div>
+            <div className="absolute top-3/4 left-3/4 w-48 h-48 border border-cyan-400/30 rounded-full animate-bounce"></div>
+          </div>
+
+          {/* Binary Rain Effect */}
+          <div className="absolute inset-0 opacity-10">
+            {Array.from({ length: 20 }, (_, i) => (
+              <div
+                key={i}
+                className="absolute text-green-400 text-xs font-mono animate-binary-rain"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 5}s`,
+                  animationDuration: `${8 + Math.random() * 4}s`
+                }}
+              >
+                {Math.random() > 0.5 ? '1' : '0'}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       
       {/* Animated Background Grid */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px] animate-pulse"></div>
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       
       {/* Floating Gradient Orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -106,7 +225,7 @@ export function Hero() {
           <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-semibold"> proprietary frameworks</span> and data-driven strategies
         </p>
 
-        {/* Engaging Video-Style CTA */}
+        {/* Video CTA Section */}
         <div className="mb-8 animate-slide-up delay-400">
           <div className="inline-flex items-center gap-4 bg-black/20 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-black/30 transition-all duration-300 group cursor-pointer">
             <div className="relative">
@@ -117,8 +236,8 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur opacity-50 animate-pulse"></div>
             </div>
             <div className="text-left">
-              <p className="text-white font-semibold">Interactive Success Demo</p>
-              <p className="text-blue-200 text-sm">See our proven results in action</p>
+              <p className="text-white font-semibold">Watch Our Success Story</p>
+              <p className="text-blue-200 text-sm">See how we transformed 250+ businesses</p>
             </div>
             <div className="ml-4">
               <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform duration-300" />
