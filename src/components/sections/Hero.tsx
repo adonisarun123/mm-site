@@ -211,19 +211,33 @@ export function Hero() {
         {/* Main Headline with Gradient Text */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up">
           <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
-            Drive Exponential Growth in
+            AI-Powered Marketing That Drives
           </span>
           <br />
           <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
-            Healthcare, Real Estate & Travel
+            Exponential Growth & Automation
           </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="text-xl sm:text-2xl text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed animate-slide-up delay-300">
-          We&apos;ve generated <span className="text-green-400 font-bold text-3xl">$50M+</span> in revenue for clients using our 
-          <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-semibold"> proprietary frameworks</span> and data-driven strategies
+        <p className="text-xl sm:text-2xl text-blue-100 max-w-5xl mx-auto mb-8 leading-relaxed animate-slide-up delay-300">
+          We&apos;ve generated <span className="text-green-400 font-bold text-3xl">$50M+</span> in revenue for healthcare, real estate & travel clients using our 
+          <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-semibold"> AI marketing systems</span> and 
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-semibold">automated growth frameworks</span>
         </p>
+
+        {/* New AI/Automation Highlights */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8 animate-slide-up delay-350">
+          <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full px-4 py-2 text-sm text-purple-200">
+            🤖 AI-Powered Campaigns
+          </div>
+          <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full px-4 py-2 text-sm text-blue-200">
+            ⚡ Marketing Automation
+          </div>
+          <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-500/30 rounded-full px-4 py-2 text-sm text-green-200">
+            📊 Predictive Analytics
+          </div>
+        </div>
 
         {/* Video CTA Section */}
         <div className="mb-8 animate-slide-up delay-400">
@@ -236,8 +250,8 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur opacity-50 animate-pulse"></div>
             </div>
             <div className="text-left">
-              <p className="text-white font-semibold">Watch Our Success Story</p>
-              <p className="text-blue-200 text-sm">See how we transformed 250+ businesses</p>
+              <p className="text-white font-semibold">Watch Our AI Marketing in Action</p>
+              <p className="text-blue-200 text-sm">See how AI automation transformed 250+ businesses</p>
             </div>
             <div className="ml-4">
               <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform duration-300" />
@@ -245,18 +259,22 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Stats Row */}
+        {/* Enhanced Stats Row */}
         <div className="flex flex-wrap justify-center gap-8 mb-12 animate-slide-up delay-500">
           <div className="text-center group">
             <div className="text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300">250+</div>
-            <div className="text-sm text-blue-200">Campaigns</div>
+            <div className="text-sm text-blue-200">AI Campaigns</div>
           </div>
           <div className="text-center group">
             <div className="text-3xl font-bold text-green-400 group-hover:scale-110 transition-transform duration-300">98%</div>
             <div className="text-sm text-blue-200">Retention</div>
           </div>
           <div className="text-center group">
-            <div className="text-3xl font-bold text-yellow-400 group-hover:scale-110 transition-transform duration-300">15+</div>
+            <div className="text-3xl font-bold text-yellow-400 group-hover:scale-110 transition-transform duration-300">85%</div>
+            <div className="text-sm text-blue-200">Automated</div>
+          </div>
+          <div className="text-center group">
+            <div className="text-3xl font-bold text-purple-400 group-hover:scale-110 transition-transform duration-300">15+</div>
             <div className="text-sm text-blue-200">Industries</div>
           </div>
         </div>
@@ -267,7 +285,7 @@ export function Hero() {
             size="lg" 
             className="group relative bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 border-0"
           >
-            <span className="relative z-10">Get Your Free Marketing Audit</span>
+            <span className="relative z-10">Get Free AI Marketing Audit</span>
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-md blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
           </Button>
@@ -276,14 +294,14 @@ export function Hero() {
             variant="outline" 
             className="group border-2 border-white/30 text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg backdrop-blur-sm bg-white/10 hover:scale-105 transition-all duration-300 hover:shadow-xl"
           >
-            <span>View Our Results</span>
+            <span>View Automation Results</span>
             <TrendingUp className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
           </Button>
         </div>
 
         {/* Trust Indicators */}
         <div className="mt-16 animate-slide-up delay-1000">
-          <p className="text-blue-200 text-sm mb-4">Trusted by industry leaders:</p>
+          <p className="text-blue-200 text-sm mb-4">Powering AI-driven growth for industry leaders:</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
             {['Healthcare Leaders', 'Real Estate Pros', 'Travel Giants', 'Fortune 500'].map((company, index) => (
               <div key={index} className="px-6 py-2 bg-white/5 rounded-full text-white text-sm hover:bg-white/10 transition-colors duration-300">

@@ -3,15 +3,37 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Search, Target, FileText, TrendingUp, Code, Globe, Sparkles } from "lucide-react"
+import { ArrowRight, Search, Target, FileText, TrendingUp, Code, Globe, Sparkles, Bot, Zap } from "lucide-react"
 import { useState } from "react"
 
 const services = [
   {
+    icon: Bot,
+    title: "AI Marketing Systems",
+    description: "Leverage artificial intelligence to optimize campaigns and predict customer behavior",
+    features: ["AI campaign optimization", "Predictive analytics", "Smart audience targeting"],
+    result: "312% improvement in campaign performance",
+    gradient: "from-violet-500 to-purple-500",
+    bgGradient: "from-violet-50 to-purple-50",
+    iconColor: "text-violet-600",
+    resultColor: "text-violet-700"
+  },
+  {
+    icon: Zap,
+    title: "Marketing Automation",
+    description: "Automate your entire marketing funnel for 24/7 lead generation and nurturing",
+    features: ["Email automation", "Lead scoring", "Workflow optimization"],
+    result: "85% reduction in manual marketing tasks",
+    gradient: "from-cyan-500 to-blue-500",
+    bgGradient: "from-cyan-50 to-blue-50",
+    iconColor: "text-cyan-600",
+    resultColor: "text-cyan-700"
+  },
+  {
     icon: Search,
     title: "Organic Growth & SEO",
-    description: "Dominate search results and build sustainable traffic",
-    features: ["Healthcare SEO", "Local SEO", "Technical SEO"],
+    description: "AI-powered SEO strategies that dominate search results and build sustainable traffic",
+    features: ["Healthcare SEO", "Local SEO", "AI content optimization"],
     result: "Average 340% organic traffic increase",
     gradient: "from-blue-500 to-cyan-500",
     bgGradient: "from-blue-50 to-cyan-50",
@@ -21,8 +43,8 @@ const services = [
   {
     icon: Target,
     title: "Strategic Media Buying",
-    description: "Maximize ROI with precision-targeted ad campaigns",
-    features: ["Google Ads", "Facebook Ads", "Native Advertising"],
+    description: "AI-optimized ad campaigns with automated bidding and smart audience targeting",
+    features: ["Google Ads automation", "Facebook AI targeting", "Programmatic advertising"],
     result: "Average 4.2x ROAS across campaigns",
     gradient: "from-purple-500 to-pink-500",
     bgGradient: "from-purple-50 to-pink-50",
@@ -32,8 +54,8 @@ const services = [
   {
     icon: FileText,
     title: "Content Marketing",
-    description: "Build authority and trust through compelling content",
-    features: ["Medical content", "Real estate guides", "Travel inspiration"],
+    description: "AI-assisted content creation and automated distribution for maximum engagement",
+    features: ["AI content generation", "Automated publishing", "Performance optimization"],
     result: "2.5x increase in qualified leads",
     gradient: "from-emerald-500 to-teal-500",
     bgGradient: "from-emerald-50 to-teal-50",
@@ -43,8 +65,8 @@ const services = [
   {
     icon: TrendingUp,
     title: "Marketing Strategy",
-    description: "Custom frameworks designed for your industry",
-    features: ["Market research", "Competitor analysis", "Growth planning"],
+    description: "Data-driven strategies powered by AI insights and predictive analytics",
+    features: ["AI market analysis", "Automated reporting", "Growth forecasting"],
     result: "85% faster time to market",
     gradient: "from-orange-500 to-red-500",
     bgGradient: "from-orange-50 to-red-50",
@@ -54,8 +76,8 @@ const services = [
   {
     icon: Code,
     title: "Internal Tools Development",
-    description: "Custom solutions to automate and scale operations",
-    features: ["CRM systems", "Analytics dashboards", "Automation tools"],
+    description: "AI-powered custom solutions to automate and scale operations",
+    features: ["AI-powered CRM", "Smart dashboards", "Automation workflows"],
     result: "60% reduction in manual tasks",
     gradient: "from-indigo-500 to-blue-500",
     bgGradient: "from-indigo-50 to-blue-50",
@@ -65,8 +87,8 @@ const services = [
   {
     icon: Globe,
     title: "World-Class Websites",
-    description: "High-converting websites that drive results",
-    features: ["UX/UI design", "Development", "Conversion optimization"],
+    description: "High-converting websites with AI chatbots and automated user experiences",
+    features: ["AI chatbots", "Smart personalization", "Conversion optimization"],
     result: "Average 190% increase in conversions",
     gradient: "from-rose-500 to-pink-500",
     bgGradient: "from-rose-50 to-pink-50",
@@ -91,15 +113,15 @@ export function Services() {
             Our Services
           </div>
           <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent mb-6 leading-tight">
-            Complete Digital Marketing Solutions
+            AI-Powered Marketing Solutions
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Built for Growth
+              Built for Automation & Growth
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our comprehensive suite of services is designed to drive measurable results for 
-            <span className="font-semibold text-blue-600"> healthcare, real estate, and travel</span> businesses.
+            Our AI-driven marketing automation suite delivers measurable results for 
+            <span className="font-semibold text-blue-600"> healthcare, real estate, and travel</span> businesses through intelligent automation and predictive analytics.
           </p>
         </div>
         
