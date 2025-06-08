@@ -132,7 +132,7 @@ export function CTA() {
               ))}
             </div>
             <p className="text-lg text-white italic mb-4 min-h-[60px] flex items-center justify-center">
-              "{testimonialQuotes[currentTestimonial].quote}"
+              &ldquo;{testimonialQuotes[currentTestimonial].quote}&rdquo;
             </p>
             <div className="text-blue-200">
               <p className="font-semibold">{testimonialQuotes[currentTestimonial].author}</p>

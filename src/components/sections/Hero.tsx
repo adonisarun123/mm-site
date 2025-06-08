@@ -65,7 +65,7 @@ export function Hero() {
 
         {/* Subheadline */}
         <p className="text-xl sm:text-2xl text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed animate-slide-up delay-300">
-          We've generated <span className="text-green-400 font-bold text-3xl">$50M+</span> in revenue for clients using our 
+          We&apos;ve generated <span className="text-green-400 font-bold text-3xl">$50M+</span> in revenue for clients using our 
           <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-semibold"> proprietary frameworks</span> and data-driven strategies
         </p>
 

@@ -192,7 +192,7 @@ export function Industries() {
             </div>
             
             <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
-              Join hundreds of successful businesses who've transformed their marketing with our industry-specific strategies.
+              Join hundreds of successful businesses who&apos;ve transformed their marketing with our industry-specific strategies.
             </p>
             
             <Button 
