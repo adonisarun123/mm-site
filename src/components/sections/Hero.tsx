@@ -140,7 +140,7 @@ export function Hero() {
 
           {/* Floating Data Points */}
           <div className="absolute inset-0">
-            {Array.from({ length: 30 }, (_, i) => (
+            {Array.from({ length: 12 }, (_, i) => (
               <div
                 key={i}
                 className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-float"
@@ -163,7 +163,7 @@ export function Hero() {
 
           {/* Binary Rain Effect */}
           <div className="absolute inset-0 opacity-10">
-            {Array.from({ length: 20 }, (_, i) => (
+            {Array.from({ length: 8 }, (_, i) => (
               <div
                 key={i}
                 className="absolute text-green-400 text-xs font-mono animate-binary-rain"
