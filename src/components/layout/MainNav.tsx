@@ -35,33 +35,54 @@ export function MainNav({ items }: MainNavProps) {
 
   return (
     <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
-        <Image
-          src="https://cdn.prod.website-files.com/62e2a0383b26fad64af677b9/62e2a0383b26fa2cf8f677e7_Monkmantra.svg"
-          alt="MonkMantra Logo"
-          width={150}
-          height={40}
-          priority
-        />
+      <Link href="/" className="flex items-center space-x-2 group">
+        <div className="relative">
+          <Image
+            src="https://ik.imagekit.io/6oa6qejxe/MonkMantra-Logo.png"
+            alt="MonkMantra"
+            width={40}
+            height={40}
+            className="rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <span className="hidden font-bold text-xl md:inline-block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent group-hover:from-orange-200 group-hover:to-red-200 transition-all duration-300">
+          MonkMantra
+        </span>
       </Link>
-      {navItems?.length ? (
-        <nav className="hidden md:flex gap-6">
+      {navItems?.length && (
+        <nav className="hidden md:flex gap-8">
           {navItems.map((item, index) => (
             <Link
               key={index}
               href={item.href || "/"}
-              className={`flex items-center text-sm font-medium transition-colors hover:text-primary relative group ${
-                pathname === item.href
-                  ? "text-foreground"
-                  : "text-foreground/60"
-              }`}
+              className={`
+                relative flex items-center text-base font-medium transition-all duration-300 group
+                ${pathname === item.href 
+                  ? 'text-orange-400' 
+                  : 'text-white/90 hover:text-white'
+                }
+              `}
             >
-              {item.title}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className="relative z-10">{item.title}</span>
+              
+              {/* Animated underline */}
+              <span 
+                className={`
+                  absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-400 transition-all duration-300
+                  ${pathname === item.href 
+                    ? 'w-full' 
+                    : 'w-0 group-hover:w-full'
+                  }
+                `}
+              />
+              
+              {/* Hover background glow */}
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10" />
             </Link>
           ))}
         </nav>
-      ) : null}
+      )}
     </div>
   )
 }

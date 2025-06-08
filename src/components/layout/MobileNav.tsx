@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
@@ -44,53 +44,86 @@ export function MobileNav({ items }: MobileNavProps) {
       <SheetTrigger asChild>
         <Button
           variant="ghost"
-          className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+          className="mr-2 px-0 text-base hover:bg-white/10 focus-visible:bg-white/10 focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
         >
-          <Menu className="h-5 w-5" />
+          <Menu className="h-6 w-6 text-white" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="pr-0">
-        <Link
-          href="/"
-          className="flex items-center mb-6"
-          onClick={() => setOpen(false)}
-        >
-          <Image
-            src="https://cdn.prod.website-files.com/62e2a0383b26fad64af677b9/62e2a0383b26fa2cf8f677e7_Monkmantra.svg"
-            alt="MonkMantra Logo"
-            width={120}
-            height={32}
-            priority
-          />
-        </Link>
-        <div className="flex flex-col space-y-4 pt-6">
-          {navItems?.map((item) =>
-            item.href ? (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "flex items-center text-sm font-medium transition-colors hover:text-primary py-2 px-3 rounded-md",
-                  pathname === item.href
-                    ? "text-foreground bg-accent"
-                    : "text-foreground/60 hover:bg-accent/50"
-                )}
-              >
-                {item.title}
-              </Link>
-            ) : null
-          )}
-          <div className="border-t pt-4 mt-4">
+      <SheetContent 
+        side="left" 
+        className="pr-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 border-white/10"
+      >
+        <div className="px-7">
+          <Link
+            href="/"
+            className="flex items-center space-x-3 group"
+            onClick={() => setOpen(false)}
+          >
+            <div className="relative">
+              <Image
+                src="https://ik.imagekit.io/6oa6qejxe/MonkMantra-Logo.png"
+                alt="MonkMantra"
+                width={32}
+                height={32}
+                className="rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <span className="font-bold text-lg bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+              MonkMantra
+            </span>
+          </Link>
+        </div>
+        
+        <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        
+        <div className="flex flex-col space-y-3 px-7">
+          {navItems.map((item, index) => (
             <Link
-              href="/contact"
+              key={index}
+              href={item.href || "/"}
               onClick={() => setOpen(false)}
-              className="flex items-center text-sm font-medium transition-colors hover:text-primary py-2 px-3 rounded-md text-foreground/60 hover:bg-accent/50"
+              className={`
+                relative flex items-center py-3 px-4 text-base font-medium transition-all duration-300 rounded-lg group
+                ${pathname === item.href 
+                  ? 'text-orange-400 bg-gradient-to-r from-orange-500/20 to-red-500/20' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+                }
+              `}
             >
-              Contact
+              <span className="relative z-10">{item.title}</span>
+              
+              {/* Active indicator */}
+              {pathname === item.href && (
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-orange-400 to-red-400 rounded-r-full" />
+              )}
+              
+              {/* Hover glow effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-red-500/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300" />
             </Link>
-          </div>
+          ))}
+        </div>
+        
+        <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        
+        <div className="flex flex-col space-y-3 px-7">
+          <Button 
+            variant="ghost" 
+            asChild 
+            className="justify-start text-white/90 hover:text-white hover:bg-white/10 transition-all duration-300"
+            onClick={() => setOpen(false)}
+          >
+            <Link href="/contact">Contact</Link>
+          </Button>
+          
+          <Button 
+            asChild 
+            className="justify-start bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 font-semibold rounded-full"
+            onClick={() => setOpen(false)}
+          >
+            <Link href="/contact">Get Started</Link>
+          </Button>
         </div>
       </SheetContent>
     </Sheet>
