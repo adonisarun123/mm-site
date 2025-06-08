@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, TrendingUp, Target, PenTool, BarChart3, Settings, Globe, Brain, Zap } from 'lucide-react';
+import { ArrowRight, TrendingUp, Target, PenTool, BarChart3, Settings, Globe, Brain, Zap, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
@@ -44,6 +44,16 @@ const services = [
     result: '85% reduction in manual marketing tasks',
     href: '/services/marketing-automation',
     color: 'from-cyan-500 to-blue-600'
+  },
+  {
+    id: 'data-analytics',
+    title: 'Data Analytics & BI',
+    description: 'Transform data into actionable insights and intelligence',
+    icon: Database,
+    features: ['Custom Dashboards', 'Predictive Analytics', 'ROI Attribution', 'Performance Intelligence'],
+    result: 'Average 95% improvement in decision-making speed',
+    href: '/services/data-analytics',
+    color: 'from-emerald-500 to-teal-600'
   },
   {
     id: 'content-marketing',
