@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, TrendingUp, Target, PenTool, BarChart3, Settings, Globe } from 'lucide-react';
+import { ArrowRight, TrendingUp, Target, PenTool, BarChart3, Settings, Globe, Brain, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
@@ -24,6 +24,26 @@ const services = [
     result: 'Average 4.2x ROAS across campaigns',
     href: '/services/media-buying',
     color: 'from-blue-500 to-cyan-600'
+  },
+  {
+    id: 'ai-marketing',
+    title: 'AI Marketing',
+    description: 'Leverage artificial intelligence for superior campaign performance',
+    icon: Brain,
+    features: ['AI Audience Targeting', 'Predictive Analytics', 'Smart Bidding', 'Dynamic Personalization'],
+    result: 'Average 312% improvement in conversion rates',
+    href: '/services/ai-marketing',
+    color: 'from-violet-500 to-purple-600'
+  },
+  {
+    id: 'marketing-automation',
+    title: 'Marketing Automation',
+    description: 'Streamline workflows and nurture leads automatically',
+    icon: Zap,
+    features: ['Email Automation', 'Lead Scoring', 'Workflow Optimization', 'CRM Integration'],
+    result: '85% reduction in manual marketing tasks',
+    href: '/services/marketing-automation',
+    color: 'from-cyan-500 to-blue-600'
   },
   {
     id: 'content-marketing',
@@ -56,13 +76,13 @@ const services = [
     color: 'from-indigo-500 to-purple-600'
   },
   {
-    id: 'web-development',
+    id: 'websites',
     title: 'World-Class Websites',
     description: 'High-converting websites that drive results',
     icon: Globe,
     features: ['UX/UI Design', 'Development', 'Conversion Optimization', 'Performance Optimization'],
     result: 'Average 190% increase in conversions',
-    href: '/services/web-development',
+    href: '/services/websites',
     color: 'from-teal-500 to-green-600'
   }
 ];
