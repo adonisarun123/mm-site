@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Search, Target, FileText, TrendingUp, Code, Globe, Sparkles, Bot, Zap } from "lucide-react"
 import { useState } from "react"
+import Link from "next/link"
 
 const services = [
   {
@@ -211,14 +212,16 @@ export function Services() {
             <p className="text-lg text-gray-600 max-w-2xl">
               Ready to accelerate your growth with our proven strategies?
             </p>
-            <Button 
-              size="lg" 
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-            >
-              <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
-              <span>View All Services</span>
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+            <Link href="/services">
+              <Button 
+                size="lg" 
+                className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
+                <span>View All Services</span>
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
