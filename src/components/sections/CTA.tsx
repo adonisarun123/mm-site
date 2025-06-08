@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle, Sparkles, Star, Clock, Award, Users } from "lucide-react"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 const benefits = [
   "Free comprehensive marketing audit",
@@ -155,26 +156,30 @@ export function CTA() {
           
           {/* CTA Buttons */}
           <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-16">
-            <Button 
-              size="lg" 
-              className="group relative bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-10 py-6 text-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 border-0 rounded-2xl"
-            >
-              <span className="relative z-10 flex items-center">
-                <Sparkles className="mr-3 h-6 w-6 group-hover:rotate-180 transition-transform duration-500" />
-                Get My Free Marketing Audit
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Button>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="group relative bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-10 py-6 text-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 border-0 rounded-2xl"
+              >
+                <span className="relative z-10 flex items-center">
+                  <Sparkles className="mr-3 h-6 w-6 group-hover:rotate-180 transition-transform duration-500" />
+                  Get My Free Marketing Audit
+                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </Button>
+            </Link>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="group border-2 border-white/30 text-white hover:bg-white hover:text-blue-900 px-10 py-6 text-xl backdrop-blur-sm bg-white/10 hover:scale-105 transition-all duration-300 hover:shadow-xl rounded-2xl"
-            >
-              <Clock className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-              <span>Schedule Strategy Call</span>
-            </Button>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="group border-2 border-white/30 text-white hover:bg-white hover:text-blue-900 px-10 py-6 text-xl backdrop-blur-sm bg-white/10 hover:scale-105 transition-all duration-300 hover:shadow-xl rounded-2xl"
+              >
+                <Clock className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
+                <span>Schedule Strategy Call</span>
+              </Button>
+            </Link>
           </div>
 
           {/* Process Timeline */}

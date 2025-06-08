@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Heart, Home, Plane, CheckCircle, Sparkles, TrendingUp } from "lucide-react"
 import { useState } from "react"
+import Link from "next/link"
 
 const industries = [
   {
@@ -165,13 +166,15 @@ export function Industries() {
                   </div>
                   
                   {/* CTA Button */}
-                  <Button 
-                    className={`w-full group-hover:bg-gradient-to-r ${industry.gradient} group-hover:text-white group-hover:border-transparent group-hover:scale-105 transition-all duration-300 font-semibold shadow-lg`}
-                    variant="outline"
-                  >
-                    <span>View Case Studies</span>
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
+                  <Link href="/case-studies">
+                    <Button 
+                      className={`w-full group-hover:bg-gradient-to-r ${industry.gradient} group-hover:text-white group-hover:border-transparent group-hover:scale-105 transition-all duration-300 font-semibold shadow-lg`}
+                      variant="outline"
+                    >
+                      <span>View Case Studies</span>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </Link>
                 </CardContent>
                 
                 {/* Decorative Corner Element */}
@@ -195,14 +198,16 @@ export function Industries() {
               Join hundreds of successful businesses who&apos;ve transformed their marketing with our industry-specific strategies.
             </p>
             
-            <Button 
-              size="lg" 
-              className="group bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 text-white px-10 py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-0"
-            >
-              <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
-              <span>Get Your Industry-Specific Strategy</span>
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="group bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 text-white px-10 py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-0"
+              >
+                <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
+                <span>Get Your Industry-Specific Strategy</span>
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+            </Link>
             
             {/* Trust Elements */}
             <div className="flex flex-wrap justify-center gap-6 mt-4 opacity-60">

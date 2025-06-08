@@ -17,7 +17,8 @@ const services = [
     gradient: "from-violet-500 to-purple-500",
     bgGradient: "from-violet-50 to-purple-50",
     iconColor: "text-violet-600",
-    resultColor: "text-violet-700"
+    resultColor: "text-violet-700",
+    href: "/services/ai-marketing"
   },
   {
     icon: Zap,
@@ -28,7 +29,8 @@ const services = [
     gradient: "from-cyan-500 to-blue-500",
     bgGradient: "from-cyan-50 to-blue-50",
     iconColor: "text-cyan-600",
-    resultColor: "text-cyan-700"
+    resultColor: "text-cyan-700",
+    href: "/services/marketing-automation"
   },
   {
     icon: Search,
@@ -39,7 +41,8 @@ const services = [
     gradient: "from-blue-500 to-cyan-500",
     bgGradient: "from-blue-50 to-cyan-50",
     iconColor: "text-blue-600",
-    resultColor: "text-blue-700"
+    resultColor: "text-blue-700",
+    href: "/services/organic-growth"
   },
   {
     icon: Target,
@@ -50,7 +53,8 @@ const services = [
     gradient: "from-purple-500 to-pink-500",
     bgGradient: "from-purple-50 to-pink-50",
     iconColor: "text-purple-600",
-    resultColor: "text-purple-700"
+    resultColor: "text-purple-700",
+    href: "/services/media-buying"
   },
   {
     icon: FileText,
@@ -61,7 +65,8 @@ const services = [
     gradient: "from-emerald-500 to-teal-500",
     bgGradient: "from-emerald-50 to-teal-50",
     iconColor: "text-emerald-600",
-    resultColor: "text-emerald-700"
+    resultColor: "text-emerald-700",
+    href: "/services/content-marketing"
   },
   {
     icon: TrendingUp,
@@ -72,7 +77,8 @@ const services = [
     gradient: "from-orange-500 to-red-500",
     bgGradient: "from-orange-50 to-red-50",
     iconColor: "text-orange-600",
-    resultColor: "text-orange-700"
+    resultColor: "text-orange-700",
+    href: "/services/marketing-strategy"
   },
   {
     icon: Code,
@@ -83,7 +89,8 @@ const services = [
     gradient: "from-indigo-500 to-blue-500",
     bgGradient: "from-indigo-50 to-blue-50",
     iconColor: "text-indigo-600",
-    resultColor: "text-indigo-700"
+    resultColor: "text-indigo-700",
+    href: "/services/internal-tools"
   },
   {
     icon: Globe,
@@ -94,7 +101,8 @@ const services = [
     gradient: "from-rose-500 to-pink-500",
     bgGradient: "from-rose-50 to-pink-50",
     iconColor: "text-rose-600",
-    resultColor: "text-rose-700"
+    resultColor: "text-rose-700",
+    href: "/services/websites"
   }
 ]
 
@@ -191,13 +199,15 @@ export function Services() {
                     </div>
                   </div>
                   
-                  <Button 
-                    variant="outline" 
-                    className={`w-full group-hover:bg-gradient-to-r ${service.gradient} group-hover:text-white group-hover:border-transparent transition-all duration-300 font-medium`}
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
+                  <Link href={service.href}>
+                    <Button 
+                      variant="outline" 
+                      className={`w-full group-hover:bg-gradient-to-r ${service.gradient} group-hover:text-white group-hover:border-transparent transition-all duration-300 font-medium`}
+                    >
+                      <span>Learn More</span>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </Link>
                 </CardContent>
                 
                 {/* Animated Corner Decoration */}

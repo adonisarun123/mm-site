@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Zap, TrendingUp, Play, Pause, Volume2, VolumeX } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -281,22 +282,26 @@ export function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up delay-700">
-          <Button 
-            size="lg" 
-            className="group relative bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 border-0"
-          >
-            <span className="relative z-10">Get Free AI Marketing Audit</span>
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-md blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="group border-2 border-white/30 text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg backdrop-blur-sm bg-white/10 hover:scale-105 transition-all duration-300 hover:shadow-xl"
-          >
-            <span>View Automation Results</span>
-            <TrendingUp className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-          </Button>
+          <Link href="/contact">
+            <Button 
+              size="lg" 
+              className="group relative bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 border-0"
+            >
+              <span className="relative z-10">Get Free AI Marketing Audit</span>
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-md blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </Button>
+          </Link>
+          <Link href="/case-studies">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="group border-2 border-white/30 text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg backdrop-blur-sm bg-white/10 hover:scale-105 transition-all duration-300 hover:shadow-xl"
+            >
+              <span>View Automation Results</span>
+              <TrendingUp className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+            </Button>
+          </Link>
         </div>
 
         {/* Trust Indicators */}
